@@ -11,8 +11,8 @@ public class OccupancyGrid implements org.ros.internal.message.Message, java.io.
 	private nav_msgs.MapMetaData info;
 	public nav_msgs.MapMetaData getInfo() { return info; }
 	public void setInfo(nav_msgs.MapMetaData value) { info = value; }
-	private transient org.jboss.netty.buffer.ChannelBuffer data=null;
+	private transient java.nio.ByteBuffer data=null;
 	private byte[] bytesdata;
-	public org.jboss.netty.buffer.ChannelBuffer getData() { if( data != null ) return data; else data = org.jboss.netty.buffer.ChannelBuffers.wrappedBuffer(bytesdata); return data; }
-	public void setData(org.jboss.netty.buffer.ChannelBuffer value) { data = value;  bytesdata = data.array(); }
+	public java.nio.ByteBuffer getData() { if( data != null ) return data; else data = java.nio.ByteBuffer.wrap(bytesdata); return data.order(java.nio.ByteOrder.LITTLE_ENDIAN); }
+	public void setData(java.nio.ByteBuffer value) { data = value;  bytesdata = data.array(); }
 }

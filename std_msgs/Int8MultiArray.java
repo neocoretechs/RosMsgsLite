@@ -8,7 +8,8 @@ public class Int8MultiArray implements org.ros.internal.message.Message, java.io
 	private std_msgs.MultiArrayLayout layout;
 	public std_msgs.MultiArrayLayout getLayout() { return layout; }
 	public void setLayout(std_msgs.MultiArrayLayout value) { layout = value; }
-	private transient org.jboss.netty.buffer.ChannelBuffer data;
-	public org.jboss.netty.buffer.ChannelBuffer getData() { return data; }
-	public void setData(org.jboss.netty.buffer.ChannelBuffer value) { data = value; }
+	private transient java.nio.ByteBuffer data=null;
+	private byte[] bytesdata;
+	public java.nio.ByteBuffer getData() { if( data != null ) return data; else data = java.nio.ByteBuffer.wrap(bytesdata); return data.order(java.nio.ByteOrder.LITTLE_ENDIAN); }
+	public void setData(java.nio.ByteBuffer value) { data = value;  bytesdata = data.array(); }
 }
